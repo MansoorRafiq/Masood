@@ -1,0 +1,12 @@
+clear
+close all
+i=1;
+t(i)=1;
+s(i)=1;
+x=input('\n\nEnter the value of for function e^x:')
+tolerence=input('\n\nEnter the tolrence of error in answer')
+while(tolerence>t(i))
+    i=i+1;
+    t(i)=((t(i-1))*(x/(i-1)));
+    s(i)=(s(i-1)+t(i));
+    fprintf('\ni=%d\tS(%d)=%f\t

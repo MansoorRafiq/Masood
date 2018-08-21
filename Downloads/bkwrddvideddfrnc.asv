@@ -1,0 +1,19 @@
+
+close all
+clear all
+x=input('Enter the values of x:');
+y=input('Enter the values of y:');
+n=length(x);
+for j=1:n-1
+for i=j+1:n
+    if (j==1)
+      d(i,1)=(y(i)-y(i-1))/(x(i)-x(i-1));
+    else
+    d(i,j)=(d(i,j-1)-d(i-1,j-1))/(x(i)-x(i-j));
+
+    end
+end    
+end
+a=[x' y' d];
+disp(a); 
+
